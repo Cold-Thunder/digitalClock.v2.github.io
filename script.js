@@ -23,7 +23,7 @@ setInterval(clock, 1000);
 
 let clockBtn = document.querySelector('.clock');
 
-clockBtn.addEventListener('click', ()=>{
+clockBtn.addEventListener('click', () => {
     document.querySelector('.timeSec').innerHTML = `
     
     <div class="watch">
@@ -63,69 +63,71 @@ stpWatch.addEventListener('click', () => {
     `;
 
     let millSec = document.querySelector(".mill");
-let sec = document.querySelector('.sec');
-let min = document.querySelector('.min');
-let hour = document.querySelector('.hour');
+    let sec = document.querySelector('.sec');
+    let min = document.querySelector('.min');
+    let hour = document.querySelector('.hour');
 
 
 
-const timer = () => {
-    millSec.innerText = '00';
-    sec.innerText = '00';
-    min.innerText = '00';
-    hour.innerText = '00';
-}
-timer();
+    const timer = () => {
+        millSec.innerText = '00';
+        sec.innerText = '00';
+        min.innerText = '00';
+        hour.innerText = '00';
+    }
+    timer();
 
-let start = document.querySelector('.start');
-let stop = document.querySelector('.stop');
-let reset = document.querySelector('.reset');
-
-
-start.addEventListener('click', () => {
-    let i = 0;
-    let j = 0;
-    let k = 0;
-    let l = 0;
-
-    let mill = setInterval(() => {
-        i += 1;
-        millSec.innerText = i;
-
-        if (i > 99) {
-            i = 0;
-            j += 1;
-            sec.innerText = j;
+    let start = document.querySelector('.start');
+    let stop = document.querySelector('.stop');
+    let reset = document.querySelector('.reset');
 
 
+    start.addEventListener('click', () => {
+        let i = 0;
+        let j = 0;
+        let k = 0;
+        let l = 0;
 
-            if (j == 59) {
-                j = 0;
-                k += 1;
-                min.innerText = k;
+        let mill = setInterval(() => {
+            i += 1;
+            millSec.innerText = i;
 
-                let l = 0;
+            if (i > 99) {
+                i = 0;
+                j += 1;
+                sec.innerText = j;
 
-                if (k == 59) {
-                    k = 0;
-                    l += 1;
-                    hour.innerText = l;
+
+
+                if (j == 59) {
+                    j = 0;
+                    k += 1;
+                    min.innerText = k;
+
+                    let l = 0;
+
+                    if (k == 59) {
+                        k = 0;
+                        l += 1;
+                        hour.innerText = l;
+                    }
+
                 }
 
             }
+        }, 10);
 
-        }
-    }, 10);
+        stop.addEventListener('click', () => {
+            clearInterval(mill);
+        })
 
-    stop.addEventListener('click', () => {
-        clearInterval(mill);
+        reset.addEventListener('click', () => {
+            timer();
+            clearInterval(mill);
+        })
+
     })
-})
 
-
-reset.addEventListener('click', () => {
-    timer()
-})
-
+    
 
 })
