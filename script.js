@@ -11,8 +11,18 @@ const clock = () => {
     let min = time.getMinutes();
     let sec = time.getSeconds();
 
+    let monArr = ['January', 'February', 'March', "April", 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
+
+    const reMonth = () => {
+        for (let i = 0; i < monArr.length; i++) {
+            if (month == i) {
+                return monArr[i];
+            }
+        }
+    }
+
     document.querySelector(".time").innerText = hour + ":" + min + ":" + sec;
-    document.querySelector(".date").innerText = dat + "-" + month + "-" + year;
+    document.querySelector(".date").innerText = dat + " " + reMonth() + " " + year;
 }
 clock();
 
@@ -128,6 +138,6 @@ stpWatch.addEventListener('click', () => {
 
     })
 
-    
+
 
 })
