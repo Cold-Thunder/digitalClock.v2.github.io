@@ -11,14 +11,15 @@ const clock = () => {
     let min = time.getMinutes();
     let sec = time.getSeconds();
 
-    let monArr = ['January', 'February', 'March', "April", 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
+    let monthArr = ['January', 'February', 'March','April', 'May', 'June', 'July', 'August', 'September', 'Octobar', 'November', 'December'];
 
-    const reMonth = () => {
-        for (let i = 0; i < monArr.length; i++) {
-            if (month == i) {
-                return monArr[i];
+    const reMonth = () =>{
+        for(let i = 0; i , monthArr.length; i++){
+            if(month == i){
+                return monthArr[i];
             }
         }
+        
     }
 
     document.querySelector(".time").innerText = hour + ":" + min + ":" + sec;
